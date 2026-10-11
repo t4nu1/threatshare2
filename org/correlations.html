@@ -73,10 +73,10 @@
                   <tr><th scope="col" data-sort="text">ID</th><th scope="col">Matching indicator</th><th scope="col" data-sort="text">Type</th><th scope="col">Organizations</th><th scope="col" data-sort="number">Confidence</th><th scope="col">Status</th><th scope="col" data-sort="date">Detected</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>COR-1093</td><td><code>login-verify.example.net</code></td><td>Domain</td><td>Northwind Energy, Org B, Org C</td><td data-value="92">92%</td><td><span class="badge badge--open">Open</span></td><td>2026-10-10</td><td><button class="btn btn--sm" type="button" data-correlation="COR-1093">Details</button></td></tr>
-                  <tr><td>COR-1088</td><td><code>203.0.113.42</code></td><td>IPv4</td><td>Northwind Energy, Org D</td><td data-value="78">78%</td><td><span class="badge badge--review">Review</span></td><td>2026-10-09</td><td><button class="btn btn--sm" type="button" data-correlation="COR-1088">Details</button></td></tr>
-                  <tr><td>COR-1081</td><td><code>e3b0c442...b855</code></td><td>SHA-256</td><td>Northwind Energy, Org B, Org E, Org F</td><td data-value="96">96%</td><td><span class="badge badge--open">Open</span></td><td>2026-10-06</td><td><button class="btn btn--sm" type="button" data-correlation="COR-1081">Details</button></td></tr>
-                  <tr><td>COR-1074</td><td><code>198.51.100.17</code></td><td>IPv4</td><td>Northwind Energy, Org C</td><td data-value="54">54%</td><td><span class="badge badge--closed">Closed</span></td><td>2026-09-29</td><td><button class="btn btn--sm" type="button" data-correlation="COR-1074">Details</button></td></tr>
+                  <tr><td class="nowrap">COR-1093</td><td><code>login-verify.example.net</code></td><td>Domain</td><td>Northwind Energy, Org B, Org C</td><td data-value="92">92%</td><td><span class="badge badge--open">Open</span></td><td class="nowrap">2026-10-10</td><td><button class="btn btn--sm" type="button" data-correlation="COR-1093">Details</button></td></tr>
+                  <tr><td class="nowrap">COR-1088</td><td><code>203.0.113.42</code></td><td>IPv4</td><td>Northwind Energy, Org D</td><td data-value="78">78%</td><td><span class="badge badge--review">Review</span></td><td class="nowrap">2026-10-09</td><td><button class="btn btn--sm" type="button" data-correlation="COR-1088">Details</button></td></tr>
+                  <tr><td class="nowrap">COR-1081</td><td><code>e3b0c442...b855</code></td><td class="nowrap">SHA-256</td><td>Northwind Energy, Org B, Org E, Org F</td><td data-value="96">96%</td><td><span class="badge badge--open">Open</span></td><td class="nowrap">2026-10-06</td><td><button class="btn btn--sm" type="button" data-correlation="COR-1081">Details</button></td></tr>
+                  <tr><td class="nowrap">COR-1074</td><td><code>198.51.100.17</code></td><td>IPv4</td><td>Northwind Energy, Org C</td><td data-value="54">54%</td><td><span class="badge badge--closed">Closed</span></td><td class="nowrap">2026-09-29</td><td><button class="btn btn--sm" type="button" data-correlation="COR-1074">Details</button></td></tr>
                 </tbody>
               </table>
               <div class="empty-state" data-empty-for="correlations-table" hidden>
@@ -94,10 +94,10 @@
                   <tr><th scope="col" data-sort="text">Organizations</th><th scope="col" data-sort="number">Shared indicators</th><th scope="col" data-sort="number">Correlations</th><th scope="col" data-sort="date">Last match</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Northwind Energy &harr; Org B</td><td>14</td><td>6</td><td>2026-10-10</td></tr>
-                  <tr><td>Northwind Energy &harr; Org C</td><td>9</td><td>4</td><td>2026-10-10</td></tr>
-                  <tr><td>Northwind Energy &harr; Org D</td><td>5</td><td>2</td><td>2026-10-09</td></tr>
-                  <tr><td>Northwind Energy &harr; Org E</td><td>3</td><td>1</td><td>2026-10-06</td></tr>
+                  <tr><td>Northwind Energy &harr; Org B</td><td>14</td><td>6</td><td class="nowrap">2026-10-10</td></tr>
+                  <tr><td>Northwind Energy &harr; Org C</td><td>9</td><td>4</td><td class="nowrap">2026-10-10</td></tr>
+                  <tr><td>Northwind Energy &harr; Org D</td><td>5</td><td>2</td><td class="nowrap">2026-10-09</td></tr>
+                  <tr><td>Northwind Energy &harr; Org E</td><td>3</td><td>1</td><td class="nowrap">2026-10-06</td></tr>
                 </tbody>
               </table>
               <div class="empty-state" data-empty-for="cross-org-table" hidden>
@@ -114,10 +114,10 @@
                   <tr><th scope="col">Indicator</th><th scope="col" data-sort="text">Type</th><th scope="col" data-sort="text">Submitted by</th><th scope="col" data-sort="severity">Severity</th><th scope="col" data-sort="date">First seen</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td><code>login-verify.example.net</code></td><td>Domain</td><td>Northwind Energy</td><td data-value="critical"><span class="badge badge--critical">Critical</span></td><td>2026-09-28</td></tr>
-                  <tr><td><code>login-verify.example.net</code></td><td>Domain</td><td>Org B</td><td data-value="high"><span class="badge badge--high">High</span></td><td>2026-09-30</td></tr>
-                  <tr><td><code>203.0.113.42</code></td><td>IPv4</td><td>Org D</td><td data-value="high"><span class="badge badge--high">High</span></td><td>2026-09-14</td></tr>
-                  <tr><td><code>e3b0c442...b855</code></td><td>SHA-256</td><td>Org E</td><td data-value="medium"><span class="badge badge--medium">Medium</span></td><td>2026-08-30</td></tr>
+                  <tr><td><code>login-verify.example.net</code></td><td>Domain</td><td>Northwind Energy</td><td data-value="critical"><span class="badge badge--critical">Critical</span></td><td class="nowrap">2026-09-28</td></tr>
+                  <tr><td><code>login-verify.example.net</code></td><td>Domain</td><td>Org B</td><td data-value="high"><span class="badge badge--high">High</span></td><td class="nowrap">2026-09-30</td></tr>
+                  <tr><td><code>203.0.113.42</code></td><td>IPv4</td><td>Org D</td><td data-value="high"><span class="badge badge--high">High</span></td><td class="nowrap">2026-09-14</td></tr>
+                  <tr><td><code>e3b0c442...b855</code></td><td class="nowrap">SHA-256</td><td>Org E</td><td data-value="medium"><span class="badge badge--medium">Medium</span></td><td class="nowrap">2026-08-30</td></tr>
                 </tbody>
               </table>
               <div class="empty-state" data-empty-for="matching-table" hidden>

@@ -198,7 +198,7 @@
   color: var(--color-text-muted);
 }
 
-.sidebar-toggle {
+.btn.sidebar-toggle {
   display: none;
 }
 
@@ -289,7 +289,7 @@
     margin-left: 0;
   }
 
-  .sidebar-toggle {
+  .btn.sidebar-toggle {
     display: inline-flex;
   }
 

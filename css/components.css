@@ -150,6 +150,10 @@
 .data-table th[aria-sort="ascending"] button::after { content: " \2191"; }
 .data-table th[aria-sort="descending"] button::after { content: " \2193"; }
 
+.data-table .nowrap {
+  white-space: nowrap;
+}
+
 .data-table tbody tr:hover {
   background: var(--color-surface-muted);
 }
@@ -204,6 +208,15 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
+}
+
+.input,
+.select {
+  height: 2.375rem;
+}
+
+.input[type="file"] {
+  height: auto;
 }
 
 .textarea {
