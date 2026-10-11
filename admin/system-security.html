@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>System Security | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Platform admin navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__admin-label">ADMIN</span>
+        <span class="sidebar__context">Platform Administration</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Platform admin">
+        <ul>
+          <li><a href="home.html">Admin Home</a></li>
+          <li><a href="organizations.html">Organizations</a></li>
+          <li><a href="approval.html">Organization Approval</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="threat-intel.html">Threat Intelligence</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="audit.html">Audit / Activity</a></li>
+          <li><a href="system-security.html">System Security</a></li>
+          <li><a href="platform-settings.html">Platform Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">System Security</p>
+        <span class="topbar__meta">Signed in as admin@threatshare.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>System security</h1>
+            <p>Platform keys and security policy.</p>
+          </div>
+        </div>
+        <div class="stack">
+          <section class="card" aria-labelledby="platform-keys-title">
+            <header class="card__header">
+              <h2 class="card__title" id="platform-keys-title">Platform keys</h2>
+            </header>
+            <div class="card__body card__body--flush">
+              <div class="table-wrap">
+                <table class="data-table" id="keys-table" data-sortable>
+                  <caption class="visually-hidden">Platform keys</caption>
+                  <thead>
+                    <tr><th scope="col" data-sort="text">Key</th><th scope="col" data-sort="text">Purpose</th><th scope="col" data-sort="text">Algorithm</th><th scope="col" data-sort="date">Created</th><th scope="col" data-sort="date">Next rotation</th><th scope="col">Status</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>platform-signing-01</td><td>Platform signatures</td><td>Ed25519</td><td>2026-01-05</td><td>2027-01-05</td><td><span class="badge badge--active">Active</span></td></tr>
+                    <tr><td>storage-encryption-03</td><td>Data at rest</td><td>AES-256-GCM</td><td>2026-07-01</td><td>2026-12-31</td><td><span class="badge badge--active">Active</span></td></tr>
+                    <tr><td>storage-encryption-02</td><td>Data at rest</td><td>AES-256-GCM</td><td>2026-01-01</td><td>-</td><td><span class="badge badge--closed">Closed</span></td></tr>
+                  </tbody>
+                </table>
+                <div class="empty-state" data-empty-for="keys-table" hidden>
+                  <p class="empty-state__title">No results</p>
+                  <p>No records match the current filters.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <form class="card" id="security-policy-form" aria-labelledby="policy-title" novalidate>
+            <header class="card__header"><h2 class="card__title" id="policy-title">Security policy</h2></header>
+            <div class="card__body form">
+              <label class="check"><input type="checkbox" id="pol-mfa" name="pol-mfa" checked> <span>Require multi-factor authentication for all users</span></label>
+              <label class="check"><input type="checkbox" id="pol-sign" name="pol-sign" checked> <span>Reject submissions without a valid organization signature</span></label>
+              <div class="form-row">
+                <div class="field">
+          <label for="pol-pw-length">Minimum password length</label>
+          <input class="input" id="pol-pw-length" name="pol-pw-length" type="number" value="12" min="8" max="64">
+        </div>
+                <div class="field">
+          <label for="pol-timeout">Session timeout (minutes)</label>
+          <input class="input" id="pol-timeout" name="pol-timeout" type="number" value="30" min="5" max="240">
+        </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+          <label for="pol-lockout">Failed login attempts before lockout</label>
+          <input class="input" id="pol-lockout" name="pol-lockout" type="number" value="5" min="3" max="20">
+        </div>
+                <div class="field">
+          <label for="pol-rotation">Key rotation interval</label>
+          <select class="select" id="pol-rotation" name="pol-rotation"><option>6 months</option><option value="12" selected>12 months</option><option>24 months</option></select>
+        </div>
+              </div>
+            </div>
+            <div class="card__footer form-actions">
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <button class="btn btn--primary" type="submit">Save policy</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/admin-system-security.js"></script>
+</body>
+</html>

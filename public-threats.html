@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public Threats | ThreatShare</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="index.html">
+        <span class="site-brand__name">THREATSHARE</span>
+        <span class="site-brand__subtitle">Secure Threat Intelligence Platform</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="public-threats.html">PUBLIC THREATS</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="security.html">SECURITY</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="site-main" id="main">
+    <div class="page-header">
+      <div>
+        <h1>Public Threats</h1>
+        <p>Threat data published for public use. Placeholder content.</p>
+      </div>
+    </div>
+    <div class="tabs">
+    <div class="tabs__list" role="tablist" aria-label="Public threat data">
+      <button class="tabs__tab" type="button" role="tab" id="tab-indicators" aria-controls="indicators">Threat indicators</button>
+      <button class="tabs__tab" type="button" role="tab" id="tab-intelligence" aria-controls="intelligence">Published intelligence</button>
+      <button class="tabs__tab" type="button" role="tab" id="tab-reports" aria-controls="reports">Public reports</button>
+      <button class="tabs__tab" type="button" role="tab" id="tab-security-info" aria-controls="security-info">Security information</button>
+    </div>
+    <section class="tabs__panel" role="tabpanel" id="indicators" aria-labelledby="tab-indicators" tabindex="0">
+      <div class="card">
+      <div class="table-toolbar">
+        <div class="field">
+          <label for="indicator-filter">Filter</label>
+          <input class="input" id="indicator-filter" type="search" data-filter-table="indicators-table" placeholder="Search indicators">
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="indicators-table" data-sortable>
+          <caption class="visually-hidden">Public threat indicators</caption>
+          <thead>
+            <tr><th scope="col" data-sort="text">Indicator</th><th scope="col" data-sort="text">Type</th><th scope="col" data-sort="severity">Severity</th><th scope="col" data-sort="date">First seen</th><th scope="col" data-sort="date">Last seen</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>203.0.113.42</code></td><td>IPv4</td><td data-value="high"><span class="badge badge--high">High</span></td><td>2026-09-14</td><td>2026-10-09</td></tr>
+            <tr><td><code>login-verify.example.net</code></td><td>Domain</td><td data-value="critical"><span class="badge badge--critical">Critical</span></td><td>2026-09-28</td><td>2026-10-10</td></tr>
+            <tr><td><code>e3b0c44298fc1c149afbf4c8996fb924...</code></td><td>SHA-256</td><td data-value="medium"><span class="badge badge--medium">Medium</span></td><td>2026-08-30</td><td>2026-10-02</td></tr>
+            <tr><td><code>hxxp://cdn-update.example.org/pkg</code></td><td>URL</td><td data-value="high"><span class="badge badge--high">High</span></td><td>2026-10-01</td><td>2026-10-08</td></tr>
+            <tr><td><code>198.51.100.17</code></td><td>IPv4</td><td data-value="low"><span class="badge badge--low">Low</span></td><td>2026-07-11</td><td>2026-09-21</td></tr>
+          </tbody>
+        </table>
+        <div class="empty-state" data-empty-for="indicators-table" hidden>
+          <p class="empty-state__title">No results</p>
+          <p>No records match the current filters.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section class="tabs__panel" role="tabpanel" id="intelligence" aria-labelledby="tab-intelligence" tabindex="0">
+      <div class="card">
+      <div class="table-wrap">
+        <table class="data-table" id="intel-table" data-sortable>
+          <caption class="visually-hidden">Published intelligence</caption>
+          <thead>
+            <tr><th scope="col" data-sort="text">Title</th><th scope="col" data-sort="text">Category</th><th scope="col" data-sort="severity">Severity</th><th scope="col" data-sort="date">Published</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Credential phishing campaign targeting energy sector</td><td>Phishing</td><td data-value="high"><span class="badge badge--high">High</span></td><td>2026-10-07</td></tr>
+            <tr><td>Loader distributed through fake software updates</td><td>Malware</td><td data-value="critical"><span class="badge badge--critical">Critical</span></td><td>2026-10-03</td></tr>
+            <tr><td>Scanning activity against exposed VPN gateways</td><td>Reconnaissance</td><td data-value="medium"><span class="badge badge--medium">Medium</span></td><td>2026-09-26</td></tr>
+            <tr><td>Abuse of public file-sharing services for staging</td><td>Infrastructure</td><td data-value="low"><span class="badge badge--low">Low</span></td><td>2026-09-18</td></tr>
+          </tbody>
+        </table>
+        <div class="empty-state" data-empty-for="intel-table" hidden>
+          <p class="empty-state__title">No results</p>
+          <p>No records match the current filters.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section class="tabs__panel" role="tabpanel" id="reports" aria-labelledby="tab-reports" tabindex="0">
+      <div class="card">
+      <div class="table-wrap">
+        <table class="data-table" id="reports-table" data-sortable>
+          <caption class="visually-hidden">Public reports</caption>
+          <thead>
+            <tr><th scope="col" data-sort="text">Report</th><th scope="col" data-sort="text">Source</th><th scope="col" data-sort="date">Date</th><th scope="col">Format</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><a href="#">Quarterly threat landscape summary (placeholder)</a></td><td>ThreatShare</td><td>2026-10-01</td><td>PDF</td></tr>
+            <tr><td><a href="#">Sector advisory: utilities (placeholder)</a></td><td>Member consortium</td><td>2026-09-15</td><td>PDF</td></tr>
+            <tr><td><a href="#">Indicator export, September (placeholder)</a></td><td>ThreatShare</td><td>2026-09-30</td><td>CSV</td></tr>
+          </tbody>
+        </table>
+        <div class="empty-state" data-empty-for="reports-table" hidden>
+          <p class="empty-state__title">No results</p>
+          <p>No records match the current filters.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section class="tabs__panel" role="tabpanel" id="security-info" aria-labelledby="tab-security-info" tabindex="0">
+      <ul class="list card">
+        <li><strong>Patch guidance for remote access appliances</strong><span class="list__meta">2026-10-05 &middot; Advisory</span>Placeholder summary of the advisory and recommended mitigations.</li>
+        <li><strong>Recommended email authentication settings</strong><span class="list__meta">2026-09-22 &middot; Guidance</span>Placeholder summary of the guidance.</li>
+        <li><strong>Responsible disclosure contact</strong><span class="list__meta">2026-09-01 &middot; Notice</span>Placeholder information on how to report security issues to the platform.</li>
+      </ul>
+    </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="org/login.html">Organization sign in</a> &middot; <a href="admin/login.html">Platform admin sign in</a>
+    </div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="js/public-threats.js"></script>
+</body>
+</html>

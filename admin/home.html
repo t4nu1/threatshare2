@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Home | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Platform admin navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__admin-label">ADMIN</span>
+        <span class="sidebar__context">Platform Administration</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Platform admin">
+        <ul>
+          <li><a href="home.html">Admin Home</a></li>
+          <li><a href="organizations.html">Organizations</a></li>
+          <li><a href="approval.html">Organization Approval</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="threat-intel.html">Threat Intelligence</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="audit.html">Audit / Activity</a></li>
+          <li><a href="system-security.html">System Security</a></li>
+          <li><a href="platform-settings.html">Platform Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">Admin Home</p>
+        <span class="topbar__meta">Signed in as admin@threatshare.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>Admin home</h1>
+            <p>Platform-wide overview.</p>
+          </div>
+        </div>
+        <div class="stack">
+          <section aria-labelledby="admin-stats-title">
+            <h2 class="visually-hidden" id="admin-stats-title">Platform statistics</h2>
+            <div class="grid grid--4">
+              <div class="card"><div class="card__body">
+                <p class="stat__label">Member organizations</p>
+                <p class="stat__value" id="stat-orgs">36</p>
+              </div></div>
+              <div class="card"><div class="card__body">
+                <p class="stat__label">Pending approvals</p>
+                <p class="stat__value" id="stat-pending">4</p>
+              </div></div>
+              <div class="card"><div class="card__body">
+                <p class="stat__label">Users</p>
+                <p class="stat__value" id="stat-users">412</p>
+              </div></div>
+              <div class="card"><div class="card__body">
+                <p class="stat__label">Threats submitted (30 days)</p>
+                <p class="stat__value" id="stat-threats">1,284</p>
+              </div></div>
+            </div>
+          </section>
+          <div class="grid grid--2">
+            <section class="card" aria-labelledby="pending-approvals-title">
+              <header class="card__header">
+                <h2 class="card__title" id="pending-approvals-title">Pending approvals</h2>
+              </header>
+              <div class="card__body card__body--flush">
+                <div class="table-wrap">
+                  <table class="data-table" id="home-pending">
+                    <caption class="visually-hidden">Pending approvals</caption>
+                    <thead>
+                      <tr><th scope="col">Organization</th><th scope="col">Sector</th><th scope="col">Submitted</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><a href="approval.html">Harbor Water Utility</a></td><td>Energy</td><td>2026-10-10</td></tr>
+                      <tr><td><a href="approval.html">Meridian Bank</a></td><td>Finance</td><td>2026-10-09</td></tr>
+                      <tr><td><a href="approval.html">City of Eastport</a></td><td>Government</td><td>2026-10-07</td></tr>
+                    </tbody>
+                  </table>
+                  <div class="empty-state" data-empty-for="home-pending" hidden>
+                    <p class="empty-state__title">No results</p>
+                    <p>No records match the current filters.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card__footer"><a href="approval.html">Review approvals</a></div>
+            </section>
+            <section class="card" aria-labelledby="recent-activity-title">
+              <header class="card__header">
+                <h2 class="card__title" id="recent-activity-title">Recent activity</h2>
+              </header>
+              <div class="card__body card__body--flush">
+                <ul class="list" id="admin-recent-activity">
+                  <li>Organization Northwind Energy rotated its signing key<span class="list__meta">2026-10-10 15:02 UTC</span></li>
+                  <li>User s.patel@northwind.example invited<span class="list__meta">2026-10-10 11:47 UTC</span></li>
+                  <li>Registration REG-2026-0142 submitted<span class="list__meta">2026-10-10 09:31 UTC</span></li>
+                  <li>Platform setting "Session timeout" changed<span class="list__meta">2026-10-09 18:20 UTC</span></li>
+                </ul>
+              </div>
+              <div class="card__footer"><a href="audit.html">Full audit log</a></div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/admin-home.js"></script>
+</body>
+</html>

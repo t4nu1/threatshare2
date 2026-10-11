@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timeline | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Organization navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__context">Organization Portal &middot; Northwind Energy</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Organization">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="submit-threat.html">Submit Threat</a></li>
+          <li><a href="correlations.html">Correlations</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="profiles.html">Threat Activity Profiles</a></li>
+          <li><a href="settings.html">Organization Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">Timeline</p>
+        <span class="topbar__meta">Signed in as j.morgan@northwind.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>Timeline</h1>
+            <p>Chronological reconstruction of related events across organizations.</p>
+          </div>
+        </div>
+        <div class="stack">
+          <form class="card" id="timeline-filters" aria-label="Timeline filters">
+            <div class="table-toolbar" style="border-bottom:0">
+              <div class="field">
+          <label for="tl-investigation">Investigation</label>
+          <select class="select" id="tl-investigation" name="tl-investigation"><option>INV-207 Phishing wave</option><option>INV-204 Update-channel loader</option><option>INV-199 VPN scanning</option></select>
+        </div>
+              <div class="field">
+          <label for="tl-org">Organization</label>
+          <select class="select" id="tl-org" name="tl-org"><option value="">All organizations</option><option>Northwind Energy</option><option>Org B</option><option>Org C</option><option>Org D</option></select>
+        </div>
+              <div class="field">
+          <label for="tl-from">From</label>
+          <input class="input" id="tl-from" name="tl-from" type="date">
+        </div>
+              <div class="field">
+          <label for="tl-to">To</label>
+          <input class="input" id="tl-to" name="tl-to" type="date">
+        </div>
+              <button class="btn" type="submit">Apply</button>
+            </div>
+          </form>
+          <section class="card" aria-labelledby="events-title">
+            <header class="card__header">
+              <h2 class="card__title" id="events-title">Events</h2>
+            </header>
+            <div class="card__body">
+              <ol class="timeline" id="timeline-events">
+              <li class="timeline__item">
+                <time class="timeline__time" datetime="2026-09-28">2026-09-28 06:12 UTC</time>
+                <p class="timeline__title">Domain registered <span class="text-muted">&middot; Org C</span></p>
+                <p class="timeline__body"><code>login-verify.example.net</code> first observed in passive DNS.</p>
+                <div class="timeline__tags"><span class="badge badge--info">Indicator</span><span class="badge badge--org-c">Org C</span></div>
+              </li>
+              <li class="timeline__item">
+                <time class="timeline__time" datetime="2026-09-30">2026-09-30 08:47 UTC</time>
+                <p class="timeline__title">Phishing emails received <span class="text-muted">&middot; Org B</span></p>
+                <p class="timeline__body">Credential phishing emails linking to <code>login-verify.example.net</code>.</p>
+                <div class="timeline__tags"><span class="badge badge--info">Incident</span><span class="badge badge--org-b">Org B</span><span class="badge badge--high">High</span></div>
+              </li>
+              <li class="timeline__item">
+                <time class="timeline__time" datetime="2026-10-01">2026-10-01 10:03 UTC</time>
+                <p class="timeline__title">Credential use from 203.0.113.42 <span class="text-muted">&middot; Northwind Energy</span></p>
+                <p class="timeline__body">Failed logins from <code>203.0.113.42</code>, which resolves from the phishing domain.</p>
+                <div class="timeline__tags"><span class="badge badge--info">Indicator</span><span class="badge badge--northwind-energy">Northwind Energy</span></div>
+              </li>
+              <li class="timeline__item">
+                <time class="timeline__time" datetime="2026-10-04">2026-10-04 15:20 UTC</time>
+                <p class="timeline__title">Loader download observed <span class="text-muted">&middot; Org D</span></p>
+                <p class="timeline__body">Sample <code>e3b0c442...b855</code> downloaded from <code>hxxp://cdn-update.example.org/pkg</code>.</p>
+                <div class="timeline__tags"><span class="badge badge--info">Indicator</span><span class="badge badge--org-d">Org D</span><span class="badge badge--critical">Critical</span></div>
+              </li>
+              <li class="timeline__item">
+                <time class="timeline__time" datetime="2026-10-10">2026-10-10 09:05 UTC</time>
+                <p class="timeline__title">Correlation COR-1093 created <span class="text-muted">&middot; ThreatShare</span></p>
+                <p class="timeline__body">Domain matched across three organizations.</p>
+                <div class="timeline__tags"><span class="badge badge--info">Correlation</span></div>
+              </li>
+              </ol>
+            </div>
+          </section>
+          <section class="card" aria-labelledby="incident--indicator-relationships-title">
+            <header class="card__header">
+              <h2 class="card__title" id="incident--indicator-relationships-title">Incident / indicator relationships</h2>
+            </header>
+            <div class="card__body card__body--flush">
+              <div class="table-wrap">
+                <table class="data-table" id="timeline-relationships">
+                  <caption class="visually-hidden">Incident and indicator relationships</caption>
+                  <thead>
+                    <tr><th scope="col">Incident</th><th scope="col">Indicator</th><th scope="col">Relationship</th><th scope="col">Organization</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>INV-207 Phishing wave</td><td><code>login-verify.example.net</code></td><td>Delivery domain</td><td>Org B</td></tr>
+                    <tr><td>INV-207 Phishing wave</td><td><code>203.0.113.42</code></td><td>Credential use source</td><td>Northwind Energy</td></tr>
+                    <tr><td>INV-204 Update-channel loader</td><td><code>e3b0c442...b855</code></td><td>Payload</td><td>Org D</td></tr>
+                  </tbody>
+                </table>
+                <div class="empty-state" data-empty-for="timeline-relationships" hidden>
+                  <p class="empty-state__title">No results</p>
+                  <p>No records match the current filters.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/org-timeline.js"></script>
+</body>
+</html>

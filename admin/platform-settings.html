@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platform Settings | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Platform admin navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__admin-label">ADMIN</span>
+        <span class="sidebar__context">Platform Administration</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Platform admin">
+        <ul>
+          <li><a href="home.html">Admin Home</a></li>
+          <li><a href="organizations.html">Organizations</a></li>
+          <li><a href="approval.html">Organization Approval</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="threat-intel.html">Threat Intelligence</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="audit.html">Audit / Activity</a></li>
+          <li><a href="system-security.html">System Security</a></li>
+          <li><a href="platform-settings.html">Platform Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">Platform Settings</p>
+        <span class="topbar__meta">Signed in as admin@threatshare.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>Platform settings</h1>
+            <p>General configuration for the ThreatShare platform.</p>
+          </div>
+        </div>
+        <form class="card" id="platform-settings-form" aria-labelledby="ps-title" novalidate>
+          <header class="card__header"><h2 class="card__title" id="ps-title">General</h2></header>
+          <div class="card__body form">
+            <div class="form-row">
+              <div class="field">
+          <label for="ps-name">Platform name</label>
+          <input class="input" id="ps-name" name="ps-name" type="text" value="ThreatShare" required>
+        </div>
+              <div class="field">
+          <label for="ps-support">Support email</label>
+          <input class="input" id="ps-support" name="ps-support" type="email" value="support@threatshare.example" required>
+        </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+          <label for="ps-retention">Default data retention</label>
+          <select class="select" id="ps-retention" name="ps-retention"><option>12 months</option><option value="24" selected>24 months</option><option>36 months</option></select>
+        </div>
+              <div class="field">
+          <label for="ps-tz">Default time zone</label>
+          <select class="select" id="ps-tz" name="ps-tz"><option>UTC</option><option>Europe/Oslo</option><option>Europe/London</option><option>America/New_York</option></select>
+        </div>
+            </div>
+            <label class="check"><input type="checkbox" id="ps-registrations" name="ps-registrations" checked> <span>Accept new organization registrations</span></label>
+            <label class="check"><input type="checkbox" id="ps-manual-approval" name="ps-manual-approval" checked> <span>Require manual approval for new organizations</span></label>
+            <label class="check"><input type="checkbox" id="ps-public" name="ps-public"> <span>Publish approved low-severity indicators on the public site</span></label>
+          </div>
+          <div class="card__footer form-actions">
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <button class="btn btn--primary" type="submit">Save settings</button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/admin-platform-settings.js"></script>
+</body>
+</html>

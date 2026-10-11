@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Investigations | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Platform admin navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__admin-label">ADMIN</span>
+        <span class="sidebar__context">Platform Administration</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Platform admin">
+        <ul>
+          <li><a href="home.html">Admin Home</a></li>
+          <li><a href="organizations.html">Organizations</a></li>
+          <li><a href="approval.html">Organization Approval</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="threat-intel.html">Threat Intelligence</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="audit.html">Audit / Activity</a></li>
+          <li><a href="system-security.html">System Security</a></li>
+          <li><a href="platform-settings.html">Platform Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">Investigations</p>
+        <span class="topbar__meta">Signed in as admin@threatshare.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>Investigations</h1>
+            <p>All investigations across member organizations.</p>
+          </div>
+        </div>
+        <div class="card">
+        <div class="table-toolbar">
+          <div class="field">
+          <label for="admin-inv-table-search">Search</label>
+          <input class="input" id="admin-inv-table-search" name="admin-inv-table-search" type="search" data-filter-table="admin-inv-table">
+        </div>
+          <div class="field">
+          <label for="admin-inv-table-status">Status</label>
+          <select class="select" id="admin-inv-table-status" name="admin-inv-table-status" data-filter-table="admin-inv-table" data-filter-col="4"><option value="">All</option><option value="open">Open</option><option value="review">Review</option><option value="closed">Closed</option></select>
+        </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="admin-inv-table" data-sortable>
+            <caption class="visually-hidden">Investigations</caption>
+            <thead>
+              <tr><th scope="col" data-sort="text">ID</th><th scope="col" data-sort="text">Title</th><th scope="col" data-sort="text">Lead organization</th><th scope="col" data-sort="number">Organizations</th><th scope="col">Status</th><th scope="col" data-sort="severity">Severity</th><th scope="col" data-sort="date">Updated</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>INV-207</td><td>Phishing wave targeting operators</td><td>Northwind Energy</td><td data-value="3">3</td><td><span class="badge badge--open">Open</span></td><td data-value="high"><span class="badge badge--high">High</span></td><td>2026-10-10</td></tr>
+              <tr><td>INV-205</td><td>Card-not-present fraud infrastructure</td><td>Org B Financial</td><td data-value="5">5</td><td><span class="badge badge--open">Open</span></td><td data-value="high"><span class="badge badge--high">High</span></td><td>2026-10-09</td></tr>
+              <tr><td>INV-204</td><td>Update-channel loader</td><td>Org D Health</td><td data-value="4">4</td><td><span class="badge badge--review">Review</span></td><td data-value="critical"><span class="badge badge--critical">Critical</span></td><td>2026-10-08</td></tr>
+              <tr><td>INV-199</td><td>VPN gateway scanning</td><td>Northwind Energy</td><td data-value="2">2</td><td><span class="badge badge--open">Open</span></td><td data-value="medium"><span class="badge badge--medium">Medium</span></td><td>2026-10-02</td></tr>
+              <tr><td>INV-188</td><td>File-sharing staging infrastructure</td><td>Org C Telecom</td><td data-value="2">2</td><td><span class="badge badge--closed">Closed</span></td><td data-value="low"><span class="badge badge--low">Low</span></td><td>2026-09-12</td></tr>
+            </tbody>
+          </table>
+          <div class="empty-state" data-empty-for="admin-inv-table" hidden>
+            <p class="empty-state__title">No results</p>
+            <p>No records match the current filters.</p>
+          </div>
+        </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/admin-investigations.js"></script>
+</body>
+</html>

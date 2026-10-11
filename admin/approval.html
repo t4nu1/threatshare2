@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Organization Approval | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Platform admin navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__admin-label">ADMIN</span>
+        <span class="sidebar__context">Platform Administration</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Platform admin">
+        <ul>
+          <li><a href="home.html">Admin Home</a></li>
+          <li><a href="organizations.html">Organizations</a></li>
+          <li><a href="approval.html">Organization Approval</a></li>
+          <li><a href="users.html">Users</a></li>
+          <li><a href="threat-intel.html">Threat Intelligence</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="audit.html">Audit / Activity</a></li>
+          <li><a href="system-security.html">System Security</a></li>
+          <li><a href="platform-settings.html">Platform Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">Organization Approval</p>
+        <span class="topbar__meta">Signed in as admin@threatshare.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>Organization approval</h1>
+            <p>Review and decide on pending organization registrations.</p>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <div class="table-wrap">
+              <table class="data-table" id="approval-table" data-sortable>
+                <caption class="visually-hidden">Pending organization registrations</caption>
+                <thead>
+                  <tr><th scope="col" data-sort="text">Reference</th><th scope="col" data-sort="text">Organization</th><th scope="col" data-sort="text">Sector</th><th scope="col" data-sort="text">Admin contact</th><th scope="col" data-sort="date">Submitted</th><th scope="col">Public key</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>REG-2026-0142</td><td>Harbor Water Utility</td><td>Energy</td><td>l.berg@harborwater.example</td><td>2026-10-10</td><td><code>Ed25519 &middot; SHA256:4a1e...c09b</code></td><td><button class="btn btn--sm" type="button" data-review="REG-2026-0142">Review</button></td></tr>
+                  <tr><td>REG-2026-0139</td><td>Meridian Bank</td><td>Finance</td><td>r.osei@meridian.example</td><td>2026-10-09</td><td><code>ECDSA P-256 &middot; SHA256:77d0...1fe2</code></td><td><button class="btn btn--sm" type="button" data-review="REG-2026-0139">Review</button></td></tr>
+                  <tr><td>REG-2026-0137</td><td>City of Eastport</td><td>Government</td><td>it-security@eastport.example</td><td>2026-10-07</td><td><code>RSA-3072 &middot; SHA256:b3c9...0a44</code></td><td><button class="btn btn--sm" type="button" data-review="REG-2026-0137">Review</button></td></tr>
+                </tbody>
+              </table>
+              <div class="empty-state" data-empty-for="approval-table" hidden>
+                <p class="empty-state__title">No results</p>
+                <p>No records match the current filters.</p>
+              </div>
+            </div>
+          </div>
+          <form class="card" id="approval-form" aria-labelledby="review-title" novalidate>
+            <header class="card__header"><h2 class="card__title" id="review-title">Review REG-2026-0142</h2></header>
+            <div class="card__body form">
+              <dl class="meta-list" id="review-details">
+                <dt>Organization</dt><dd>Harbor Water Utility</dd>
+                <dt>Registration number</dt><dd>DK-38291044</dd>
+                <dt>Admin</dt><dd>Lena Berg, Head of IT Security</dd>
+                <dt>Admin email</dt><dd>l.berg@harborwater.example</dd>
+                <dt>Public key</dt><dd><code>Ed25519 &middot; SHA256:4a1e...c09b</code></dd>
+              </dl>
+              <label class="check"><input type="checkbox" id="verify-identity" name="verify-identity"> <span>Organization identity verified</span></label>
+              <label class="check"><input type="checkbox" id="verify-admin" name="verify-admin"> <span>Admin contact verified</span></label>
+              <label class="check"><input type="checkbox" id="verify-key" name="verify-key"> <span>Public key fingerprint confirmed with the organization out of band</span></label>
+              <div class="field">
+          <label for="decision-note">Decision note</label>
+          <textarea class="textarea" id="decision-note" name="decision-note" aria-describedby="decision-note-hint" rows="3"></textarea>
+          <span class="field__hint" id="decision-note-hint">Required when rejecting.</span>
+        </div>
+            </div>
+            <div class="card__footer form-actions">
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <button class="btn" type="button" id="reject-btn">Reject</button>
+              <button class="btn btn--primary" type="submit">Approve</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/admin-approval.js"></script>
+</body>
+</html>

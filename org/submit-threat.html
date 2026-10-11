@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submit Threat | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Organization navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__context">Organization Portal &middot; Northwind Energy</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Organization">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="submit-threat.html">Submit Threat</a></li>
+          <li><a href="correlations.html">Correlations</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="profiles.html">Threat Activity Profiles</a></li>
+          <li><a href="settings.html">Organization Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">Submit Threat</p>
+        <span class="topbar__meta">Signed in as j.morgan@northwind.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>Submit threat</h1>
+            <p>Share a threat indicator with member organizations.</p>
+          </div>
+        </div>
+        <form class="card" id="submit-threat-form" aria-labelledby="submit-title" novalidate>
+          <header class="card__header"><h2 class="card__title" id="submit-title">Threat details</h2></header>
+          <div class="card__body form">
+            <div class="form-row">
+              <div class="field">
+          <label for="indicator-type">Indicator type</label>
+          <select class="select" id="indicator-type" name="indicator-type" required><option value="">Select type</option><option>IPv4 address</option><option>IPv6 address</option><option>Domain</option><option>URL</option><option>File hash (SHA-256)</option><option>Email address</option><option>Other</option></select>
+        </div>
+              <div class="field">
+          <label for="indicator">Indicator</label>
+          <input class="input" id="indicator" name="indicator" type="text" required aria-describedby="indicator-hint" spellcheck="false" autocomplete="off">
+          <span class="field__hint" id="indicator-hint">For URLs and domains, the value is stored defanged.</span>
+        </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+          <label for="severity">Severity</label>
+          <select class="select" id="severity" name="severity" required><option value="">Select severity</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="critical">Critical</option></select>
+        </div>
+              <div class="field">
+          <label for="confidence">Confidence</label>
+          <select class="select" id="confidence" name="confidence" required><option value="">Select confidence</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
+        </div>
+            </div>
+            <div class="field">
+          <label for="description">Description</label>
+          <textarea class="textarea" id="description" name="description" required aria-describedby="description-hint"></textarea>
+          <span class="field__hint" id="description-hint">Context, observed behavior and any recommended action.</span>
+        </div>
+            <div class="form-row">
+              <div class="field">
+          <label for="related-incident">Related incident / investigation</label>
+          <select class="select" id="related-incident" name="related-incident"><option value="">None</option><option>INV-207 Phishing wave</option><option>INV-204 Update-channel loader</option><option>INV-199 VPN scanning</option></select>
+        </div>
+              <div class="field">
+          <label for="evidence">Evidence files</label>
+          <input class="input" id="evidence" name="evidence" type="file" aria-describedby="evidence-hint" multiple>
+          <span class="field__hint" id="evidence-hint">Logs, samples or screenshots. Files are encrypted before upload.</span>
+        </div>
+            </div>
+            <fieldset class="fieldset">
+              <legend class="label">Secure submission</legend>
+              <div class="form">
+                <div class="field">
+          <label for="signing-key">Signing key</label>
+          <input class="input" id="signing-key" name="signing-key" type="text" value="Northwind Energy &middot; SHA256:9f2c...41ad" readonly>
+        </div>
+                <label class="check"><input type="checkbox" id="secure-confirm" name="secure-confirm" required> <span>I confirm this submission will be signed with our organization key and encrypted before it is sent.</span></label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="card__footer form-actions">
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <button class="btn" type="reset">Clear</button>
+            <button class="btn btn--primary" type="submit">Sign and submit</button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/org-submit-threat.js"></script>
+</body>
+</html>

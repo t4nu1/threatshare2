@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platform Admin Sign In | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <main class="auth" id="main">
+    <div class="auth__panel">
+      <div class="auth__brand">
+        <a class="site-brand" href="../index.html">
+          <span class="site-brand__name">THREATSHARE</span>
+          <span class="site-brand__subtitle"><span class="badge">ADMIN</span> Platform Administration</span>
+        </a>
+      </div>
+      <section class="card" aria-labelledby="login-title">
+        <header class="card__header"><h1 class="card__title" id="login-title">Platform admin sign in</h1></header>
+        <div class="card__body">
+          <form class="form" id="admin-login-form" novalidate>
+            <div class="field">
+        <label for="email">Email</label>
+        <input class="input" id="email" name="email" type="email" required autocomplete="username">
+      </div>
+            <div class="field">
+        <label for="password">Password</label>
+        <input class="input" id="password" name="password" type="password" required autocomplete="current-password">
+      </div>
+            <div class="field">
+        <label for="auth-code">Authentication code</label>
+        <input class="input" id="auth-code" name="auth-code" type="text" required aria-describedby="auth-code-hint" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{{6}}" maxlength="6">
+        <span class="field__hint" id="auth-code-hint">6-digit code from your authenticator app.</span>
+      </div>
+            <button class="btn btn--primary btn--block" type="submit">Sign in</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="../js/shared.js"></script>
+  <script src="../js/admin-login.js"></script>
+</body>
+</html>

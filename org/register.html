@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Organization Registration | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <main class="auth" id="main">
+    <div class="auth__panel auth__panel--wide">
+      <div class="auth__brand">
+        <a class="site-brand" href="../index.html">
+          <span class="site-brand__name">THREATSHARE</span>
+          <span class="site-brand__subtitle">Organization Portal</span>
+        </a>
+      </div>
+      <section class="card" aria-labelledby="register-title">
+        <header class="card__header"><h1 class="card__title" id="register-title">Organization registration</h1></header>
+        <div class="card__body">
+          <ol class="stepper" aria-label="Registration progress">
+        <li>Organization details</li>
+        <li>Organization admin</li>
+        <li>Credentials</li>
+        <li>Cryptographic identity</li>
+        <li>Review and submit</li>
+          </ol>
+          <form id="register-form" novalidate>
+            <fieldset class="step form" data-step="0">
+              <legend class="visually-hidden">Organization details</legend>
+              <div class="field">
+        <label for="org-name">Organization legal name</label>
+        <input class="input" id="org-name" name="org-name" type="text" required>
+      </div>
+              <div class="form-row">
+                <div class="field">
+        <label for="org-sector">Sector</label>
+        <select class="select" id="org-sector" name="org-sector" required><option value="">Select sector</option><option>Energy</option><option>Finance</option><option>Government</option><option>Healthcare</option><option>Telecommunications</option><option>Other</option></select>
+      </div>
+                <div class="field">
+        <label for="org-country">Country</label>
+        <input class="input" id="org-country" name="org-country" type="text" required>
+      </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+        <label for="org-reg-number">Registration / company number</label>
+        <input class="input" id="org-reg-number" name="org-reg-number" type="text" required>
+      </div>
+                <div class="field">
+        <label for="org-website">Website</label>
+        <input class="input" id="org-website" name="org-website" type="url">
+      </div>
+              </div>
+            </fieldset>
+            <fieldset class="step form" data-step="1" hidden>
+              <legend class="visually-hidden">Organization admin details</legend>
+              <div class="form-row">
+                <div class="field">
+        <label for="admin-name">Full name</label>
+        <input class="input" id="admin-name" name="admin-name" type="text" required>
+      </div>
+                <div class="field">
+        <label for="admin-title">Job title</label>
+        <input class="input" id="admin-title" name="admin-title" type="text" required>
+      </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+        <label for="admin-email">Work email</label>
+        <input class="input" id="admin-email" name="admin-email" type="email" required>
+      </div>
+                <div class="field">
+        <label for="admin-phone">Phone</label>
+        <input class="input" id="admin-phone" name="admin-phone" type="tel">
+      </div>
+              </div>
+            </fieldset>
+            <fieldset class="step form" data-step="2" hidden>
+              <legend class="visually-hidden">Credentials</legend>
+              <div class="field">
+        <label for="reg-password">Password</label>
+        <input class="input" id="reg-password" name="reg-password" type="password" required aria-describedby="reg-password-hint" minlength="12" autocomplete="new-password">
+        <span class="field__hint" id="reg-password-hint">At least 12 characters.</span>
+      </div>
+              <div class="field">
+        <label for="reg-password-confirm">Confirm password</label>
+        <input class="input" id="reg-password-confirm" name="reg-password-confirm" type="password" required minlength="12" autocomplete="new-password">
+      </div>
+              <label class="check"><input type="checkbox" id="reg-mfa" name="reg-mfa" checked disabled> <span>Set up an authenticator app for multi-factor authentication after approval</span></label>
+            </fieldset>
+            <fieldset class="step form" data-step="3" hidden>
+              <legend class="visually-hidden">Cryptographic identity</legend>
+              <p class="notice">Generate a signing key pair locally and upload only the public key. The private key never leaves your organization.</p>
+              <div class="field">
+        <label for="key-algorithm">Key algorithm</label>
+        <select class="select" id="key-algorithm" name="key-algorithm" required><option>Ed25519</option><option>ECDSA P-256</option><option>RSA-3072</option></select>
+      </div>
+              <div class="field">
+        <label for="public-key">Public key (PEM)</label>
+        <textarea class="textarea" id="public-key" name="public-key" required rows="5" spellcheck="false"></textarea>
+      </div>
+              <div class="field">
+        <label for="key-fingerprint">Key fingerprint</label>
+        <input class="input" id="key-fingerprint" name="key-fingerprint" type="text" aria-describedby="key-fingerprint-hint" readonly>
+        <span class="field__hint" id="key-fingerprint-hint">Calculated after the public key is provided.</span>
+      </div>
+            </fieldset>
+            <fieldset class="step form" data-step="4" hidden>
+              <legend class="visually-hidden">Review and submit</legend>
+              <dl class="meta-list" id="register-summary"></dl>
+              <p class="notice">After submission, your registration is reviewed by a platform administrator. You will receive an email once your organization is approved or if more information is needed.</p>
+              <label class="check"><input type="checkbox" id="reg-confirm" name="reg-confirm" required> <span>I confirm the information provided is accurate and I am authorized to register this organization.</span></label>
+            </fieldset>
+            <div class="form-actions" style="margin-top: var(--space-5)">
+              <button class="btn" type="button" id="step-back" disabled>Back</button>
+              <button class="btn btn--primary" type="button" id="step-next">Next</button>
+              <button class="btn btn--primary" type="submit" id="step-submit" hidden>Submit for approval</button>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <div id="register-pending" hidden>
+            <h2>Registration submitted</h2>
+            <p>Status: <span class="badge badge--pending">Pending approval</span></p>
+            <p class="text-muted">Reference: <code>REG-2026-0142</code>. A platform administrator will review your request.</p>
+          </div>
+        </div>
+      </section>
+      <p class="auth__links">Already registered? <a href="login.html">Sign in</a></p>
+    </div>
+  </main>
+  <script src="../js/shared.js"></script>
+  <script src="../js/org-register.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Investigations | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Organization navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__context">Organization Portal &middot; Northwind Energy</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Organization">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="submit-threat.html">Submit Threat</a></li>
+          <li><a href="correlations.html">Correlations</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="profiles.html">Threat Activity Profiles</a></li>
+          <li><a href="settings.html">Organization Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">Investigations</p>
+        <span class="topbar__meta">Signed in as j.morgan@northwind.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>Investigations</h1>
+            <p>Create and manage investigations across related threats and organizations.</p>
+          </div>
+          <div class="inline-actions"><button class="btn btn--primary" type="button" id="new-investigation-toggle" aria-expanded="false" aria-controls="new-investigation">New investigation</button></div>
+        </div>
+        <div class="stack">
+          <form class="card" id="new-investigation" aria-labelledby="new-inv-title" hidden novalidate>
+            <header class="card__header"><h2 class="card__title" id="new-inv-title">New investigation</h2></header>
+            <div class="card__body form">
+              <div class="field">
+          <label for="inv-title">Title</label>
+          <input class="input" id="inv-title" name="inv-title" type="text" required>
+        </div>
+              <div class="form-row">
+                <div class="field">
+          <label for="inv-severity">Severity</label>
+          <select class="select" id="inv-severity" name="inv-severity" required><option value="">Select severity</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="critical">Critical</option></select>
+        </div>
+                <div class="field">
+          <label for="inv-orgs">Invite organizations</label>
+          <input class="input" id="inv-orgs" name="inv-orgs" type="text" aria-describedby="inv-orgs-hint">
+          <span class="field__hint" id="inv-orgs-hint">Comma-separated organization names.</span>
+        </div>
+              </div>
+              <div class="field">
+          <label for="inv-summary">Summary</label>
+          <textarea class="textarea" id="inv-summary" name="inv-summary"></textarea>
+        </div>
+            </div>
+            <div class="card__footer form-actions">
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <button class="btn" type="button" id="new-investigation-cancel">Cancel</button>
+              <button class="btn btn--primary" type="submit">Create investigation</button>
+            </div>
+          </form>
+          <div class="card">
+            <div class="table-toolbar">
+              <div class="field">
+          <label for="inv-search">Search</label>
+          <input class="input" id="inv-search" name="inv-search" type="search" data-filter-table="investigations-table">
+        </div>
+              <div class="field">
+          <label for="inv-status-filter">Status</label>
+          <select class="select" id="inv-status-filter" name="inv-status-filter" data-filter-table="investigations-table" data-filter-col="2"><option value="">All</option><option value="open">Open</option><option value="review">Review</option><option value="closed">Closed</option></select>
+        </div>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table" id="investigations-table" data-sortable>
+                <caption class="visually-hidden">Investigations</caption>
+                <thead>
+                  <tr><th scope="col" data-sort="text">ID</th><th scope="col" data-sort="text">Title</th><th scope="col">Status</th><th scope="col" data-sort="severity">Severity</th><th scope="col" data-sort="number">Related threats</th><th scope="col" data-sort="number">Organizations</th><th scope="col" data-sort="date">Updated</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>INV-207</td><td>Phishing wave targeting operators</td><td><span class="badge badge--open">Open</span></td><td data-value="high"><span class="badge badge--high">High</span></td><td data-value="6">6</td><td data-value="3">3</td><td>2026-10-10</td><td><button class="btn btn--sm" type="button" data-investigation="INV-207">Open</button></td></tr>
+                  <tr><td>INV-204</td><td>Update-channel loader</td><td><span class="badge badge--review">Review</span></td><td data-value="critical"><span class="badge badge--critical">Critical</span></td><td data-value="9">9</td><td data-value="4">4</td><td>2026-10-08</td><td><button class="btn btn--sm" type="button" data-investigation="INV-204">Open</button></td></tr>
+                  <tr><td>INV-199</td><td>VPN gateway scanning</td><td><span class="badge badge--open">Open</span></td><td data-value="medium"><span class="badge badge--medium">Medium</span></td><td data-value="4">4</td><td data-value="2">2</td><td>2026-10-02</td><td><button class="btn btn--sm" type="button" data-investigation="INV-199">Open</button></td></tr>
+                  <tr><td>INV-188</td><td>File-sharing staging infrastructure</td><td><span class="badge badge--closed">Closed</span></td><td data-value="low"><span class="badge badge--low">Low</span></td><td data-value="3">3</td><td data-value="2">2</td><td>2026-09-12</td><td><button class="btn btn--sm" type="button" data-investigation="INV-188">Open</button></td></tr>
+                </tbody>
+              </table>
+              <div class="empty-state" data-empty-for="investigations-table" hidden>
+                <p class="empty-state__title">No results</p>
+                <p>No records match the current filters.</p>
+              </div>
+            </div>
+          </div>
+          <section class="card" id="investigation-detail" aria-labelledby="inv-detail-title">
+            <header class="card__header">
+              <h2 class="card__title" id="inv-detail-title">INV-207 &middot; Phishing wave targeting operators</h2>
+              <div class="field" style="flex-direction:row;align-items:center;gap:var(--space-2)">
+                <label for="inv-status">Status</label>
+                <select class="select" id="inv-status" style="width:auto"><option selected>Open</option><option>Review</option><option>Closed</option></select>
+              </div>
+            </header>
+            <div class="card__body">
+              <div class="tabs">
+              <div class="tabs__list" role="tablist" aria-label="Investigation details">
+                <button class="tabs__tab" type="button" role="tab" id="tab-inv-threats" aria-controls="inv-threats">Related threats</button>
+                <button class="tabs__tab" type="button" role="tab" id="tab-inv-related-orgs" aria-controls="inv-related-orgs">Related organizations</button>
+                <button class="tabs__tab" type="button" role="tab" id="tab-inv-evidence" aria-controls="inv-evidence">Evidence</button>
+                <button class="tabs__tab" type="button" role="tab" id="tab-inv-correlations" aria-controls="inv-correlations">Correlations</button>
+              </div>
+              <section class="tabs__panel" role="tabpanel" id="inv-threats" aria-labelledby="tab-inv-threats" tabindex="0">
+                <div class="table-wrap">
+                  <table class="data-table" id="inv-threats-table" data-sortable>
+                    <caption class="visually-hidden">Related threats</caption>
+                    <thead>
+                      <tr><th scope="col">Indicator</th><th scope="col">Type</th><th scope="col" data-sort="severity">Severity</th><th scope="col">Submitted by</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><code>login-verify.example.net</code></td><td>Domain</td><td data-value="critical"><span class="badge badge--critical">Critical</span></td><td>Northwind Energy</td></tr>
+                      <tr><td><code>203.0.113.42</code></td><td>IPv4</td><td data-value="high"><span class="badge badge--high">High</span></td><td>Org D</td></tr>
+                    </tbody>
+                  </table>
+                  <div class="empty-state" data-empty-for="inv-threats-table" hidden>
+                    <p class="empty-state__title">No results</p>
+                    <p>No records match the current filters.</p>
+                  </div>
+                </div>
+              </section>
+              <section class="tabs__panel" role="tabpanel" id="inv-related-orgs" aria-labelledby="tab-inv-related-orgs" tabindex="0">
+                <div class="table-wrap">
+                  <table class="data-table" id="inv-orgs-table">
+                    <caption class="visually-hidden">Related organizations</caption>
+                    <thead>
+                      <tr><th scope="col">Organization</th><th scope="col">Role</th><th scope="col">Joined</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Northwind Energy</td><td>Lead</td><td>2026-10-01</td></tr>
+                      <tr><td>Org B</td><td>Contributor</td><td>2026-10-03</td></tr>
+                      <tr><td>Org C</td><td>Contributor</td><td>2026-10-05</td></tr>
+                    </tbody>
+                  </table>
+                  <div class="empty-state" data-empty-for="inv-orgs-table" hidden>
+                    <p class="empty-state__title">No results</p>
+                    <p>No records match the current filters.</p>
+                  </div>
+                </div>
+              </section>
+              <section class="tabs__panel" role="tabpanel" id="inv-evidence" aria-labelledby="tab-inv-evidence" tabindex="0">
+                <div class="table-wrap">
+                  <table class="data-table" id="inv-evidence-table">
+                    <caption class="visually-hidden">Evidence</caption>
+                    <thead>
+                      <tr><th scope="col">File</th><th scope="col">Added by</th><th scope="col">Added</th><th scope="col">Signature</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><code>mail-headers.eml</code></td><td>Northwind Energy</td><td>2026-10-02</td><td><span class="badge badge--verified">Verified</span></td></tr>
+                      <tr><td><code>proxy-logs.csv</code></td><td>Org B</td><td>2026-10-04</td><td><span class="badge badge--verified">Verified</span></td></tr>
+                    </tbody>
+                  </table>
+                  <div class="empty-state" data-empty-for="inv-evidence-table" hidden>
+                    <p class="empty-state__title">No results</p>
+                    <p>No records match the current filters.</p>
+                  </div>
+                </div>
+              </section>
+              <section class="tabs__panel" role="tabpanel" id="inv-correlations" aria-labelledby="tab-inv-correlations" tabindex="0">
+                <div class="table-wrap">
+                  <table class="data-table" id="inv-corr-table">
+                    <caption class="visually-hidden">Correlations</caption>
+                    <thead>
+                      <tr><th scope="col">Correlation</th><th scope="col">Matching indicator</th><th scope="col">Confidence</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><a href="correlations.html">COR-1093</a></td><td><code>login-verify.example.net</code></td><td>92%</td></tr>
+                      <tr><td><a href="correlations.html">COR-1088</a></td><td><code>203.0.113.42</code></td><td>78%</td></tr>
+                    </tbody>
+                  </table>
+                  <div class="empty-state" data-empty-for="inv-corr-table" hidden>
+                    <p class="empty-state__title">No results</p>
+                    <p>No records match the current filters.</p>
+                  </div>
+                </div>
+              </section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/org-investigations.js"></script>
+</body>
+</html>

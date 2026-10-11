@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Threat Activity Profiles | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Organization navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__context">Organization Portal &middot; Northwind Energy</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Organization">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="submit-threat.html">Submit Threat</a></li>
+          <li><a href="correlations.html">Correlations</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="profiles.html">Threat Activity Profiles</a></li>
+          <li><a href="settings.html">Organization Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">Threat Activity Profiles</p>
+        <span class="topbar__meta">Signed in as j.morgan@northwind.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>Threat activity profiles</h1>
+            <p>Evidence-based profiles built from correlated activity.</p>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <div class="table-wrap">
+              <table class="data-table" id="profiles-table" data-sortable>
+                <caption class="visually-hidden">Threat activity profiles</caption>
+                <thead>
+                  <tr><th scope="col" data-sort="text">Profile</th><th scope="col" data-sort="text">Name</th><th scope="col">Confidence</th><th scope="col" data-sort="date">First observed</th><th scope="col" data-sort="date">Last observed</th><th scope="col" data-sort="number">Organizations</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>TAP-031</td><td>Operator credential phishing cluster</td><td>High</td><td>2026-09-28</td><td>2026-10-10</td><td data-value="4">4</td><td><button class="btn btn--sm" type="button" data-profile="TAP-031">View</button></td></tr>
+                  <tr><td>TAP-027</td><td>Update-channel loader activity</td><td>Medium</td><td>2026-08-30</td><td>2026-10-08</td><td data-value="5">5</td><td><button class="btn btn--sm" type="button" data-profile="TAP-027">View</button></td></tr>
+                  <tr><td>TAP-019</td><td>Edge device scanning</td><td>Low</td><td>2026-07-11</td><td>2026-10-02</td><td data-value="3">3</td><td><button class="btn btn--sm" type="button" data-profile="TAP-019">View</button></td></tr>
+                </tbody>
+              </table>
+              <div class="empty-state" data-empty-for="profiles-table" hidden>
+                <p class="empty-state__title">No results</p>
+                <p>No records match the current filters.</p>
+              </div>
+            </div>
+          </div>
+          <section class="card" id="profile-detail" aria-labelledby="profile-title">
+            <header class="card__header">
+              <h2 class="card__title" id="profile-title">TAP-031 &middot; Operator credential phishing cluster</h2>
+              <span class="badge badge--info">Confidence: High</span>
+            </header>
+            <div class="card__body stack">
+              <dl class="meta-list">
+                <dt>First observed</dt><dd>2026-09-28</dd>
+                <dt>Last observed</dt><dd>2026-10-10</dd>
+                <dt>Confidence</dt><dd>High (based on 3 independent correlations)</dd>
+                <dt>Evidence</dt><dd>COR-1093, COR-1088, INV-207</dd>
+              </dl>
+              <div class="grid grid--3">
+                <div>
+                  <h3 class="card__title">Techniques</h3>
+                  <ul class="text-sm">
+                    <li>T1566.002 Phishing: Spearphishing Link</li>
+                    <li>T1078 Valid Accounts</li>
+                    <li>T1583.001 Acquire Infrastructure: Domains</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="card__title">Malware</h3>
+                  <ul class="text-sm">
+                    <li>Credential harvesting kit (unnamed)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="card__title">Organizations involved</h3>
+                  <ul class="text-sm">
+                    <li>Northwind Energy</li>
+                    <li>Org B</li>
+                    <li>Org C</li>
+                    <li>Org D</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <h3 class="card__title">Indicators</h3>
+                <div class="table-wrap">
+                  <table class="data-table" id="profile-indicators">
+                    <caption class="visually-hidden">Profile indicators</caption>
+                    <thead>
+                      <tr><th scope="col">Indicator</th><th scope="col">Type</th><th scope="col">Observations</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><code>login-verify.example.net</code></td><td>Domain</td><td>14</td></tr>
+                      <tr><td><code>203.0.113.42</code></td><td>IPv4</td><td>9</td></tr>
+                      <tr><td><code>hxxp://cdn-update.example.org/pkg</code></td><td>URL</td><td>3</td></tr>
+                    </tbody>
+                  </table>
+                  <div class="empty-state" data-empty-for="profile-indicators" hidden>
+                    <p class="empty-state__title">No results</p>
+                    <p>No records match the current filters.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/org-profiles.js"></script>
+</body>
+</html>

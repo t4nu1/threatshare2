@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Organization Settings | ThreatShare</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="portal">
+    <aside class="sidebar" id="sidebar" aria-label="Organization navigation">
+      <div class="sidebar__header">
+        <a class="sidebar__brand" href="home.html">THREATSHARE</a>
+        <span class="sidebar__context">Organization Portal &middot; Northwind Energy</span>
+      </div>
+      <nav class="sidebar__nav" aria-label="Organization">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="submit-threat.html">Submit Threat</a></li>
+          <li><a href="correlations.html">Correlations</a></li>
+          <li><a href="investigations.html">Investigations</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="profiles.html">Threat Activity Profiles</a></li>
+          <li><a href="settings.html">Organization Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <a href="login.html">Sign out</a>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" hidden></div>
+    <div class="portal__main">
+      <header class="topbar">
+        <button class="btn btn--sm sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+        <p class="topbar__title">Organization Settings</p>
+        <span class="topbar__meta">Signed in as j.morgan@northwind.example</span>
+      </header>
+      <main class="content" id="main">
+        <div class="page-header">
+          <div>
+            <h1>Organization settings</h1>
+            <p>Organization-level configuration.</p>
+          </div>
+        </div>
+        <div class="tabs">
+        <div class="tabs__list" role="tablist" aria-label="Settings sections">
+          <button class="tabs__tab" type="button" role="tab" id="tab-org-info" aria-controls="org-info">Organization information</button>
+          <button class="tabs__tab" type="button" role="tab" id="tab-admin-info" aria-controls="admin-info">Admin information</button>
+          <button class="tabs__tab" type="button" role="tab" id="tab-org-users" aria-controls="org-users">Users</button>
+          <button class="tabs__tab" type="button" role="tab" id="tab-security" aria-controls="security">Security settings</button>
+          <button class="tabs__tab" type="button" role="tab" id="tab-sharing" aria-controls="sharing">Sharing preferences</button>
+          <button class="tabs__tab" type="button" role="tab" id="tab-other" aria-controls="other">Other configuration</button>
+        </div>
+        <section class="tabs__panel" role="tabpanel" id="org-info" aria-labelledby="tab-org-info" tabindex="0">
+          <form class="card" id="org-info-form" novalidate>
+            <div class="card__body form">
+              <div class="field">
+                <label for="set-org-name">Organization name</label>
+                <input class="input" id="set-org-name" name="set-org-name" type="text" value="Northwind Energy" required>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                <label for="set-org-sector">Sector</label>
+                <select class="select" id="set-org-sector" name="set-org-sector"><option>Energy</option><option>Finance</option><option>Government</option><option>Healthcare</option><option>Telecommunications</option><option>Other</option></select>
+              </div>
+                <div class="field">
+                <label for="set-org-country">Country</label>
+                <input class="input" id="set-org-country" name="set-org-country" type="text" value="Norway">
+              </div>
+              </div>
+              <div class="field">
+                <label for="set-org-contact">Security contact email</label>
+                <input class="input" id="set-org-contact" name="set-org-contact" type="email" value="soc@northwind.example">
+              </div>
+            </div>
+            <div class="card__footer form-actions">
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <button class="btn btn--primary" type="submit">Save changes</button>
+            </div>
+          </form>
+        </section>
+        <section class="tabs__panel" role="tabpanel" id="admin-info" aria-labelledby="tab-admin-info" tabindex="0">
+          <form class="card" id="admin-info-form" novalidate>
+            <div class="card__body form">
+              <div class="form-row">
+                <div class="field">
+                <label for="set-admin-name">Full name</label>
+                <input class="input" id="set-admin-name" name="set-admin-name" type="text" value="Jordan Morgan" required>
+              </div>
+                <div class="field">
+                <label for="set-admin-title">Job title</label>
+                <input class="input" id="set-admin-title" name="set-admin-title" type="text" value="Security Operations Lead">
+              </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                <label for="set-admin-email">Email</label>
+                <input class="input" id="set-admin-email" name="set-admin-email" type="email" value="j.morgan@northwind.example" required>
+              </div>
+                <div class="field">
+                <label for="set-admin-phone">Phone</label>
+                <input class="input" id="set-admin-phone" name="set-admin-phone" type="tel">
+              </div>
+              </div>
+            </div>
+            <div class="card__footer form-actions">
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <button class="btn btn--primary" type="submit">Save changes</button>
+            </div>
+          </form>
+        </section>
+        <section class="tabs__panel" role="tabpanel" id="org-users" aria-labelledby="tab-org-users" tabindex="0">
+          <div class="card">
+          <div class="table-toolbar">
+            <div class="field">
+            <label for="user-search">Search users</label>
+            <input class="input" id="user-search" name="user-search" type="search" data-filter-table="org-users-table">
+          </div>
+            <button class="btn btn--primary" type="button" id="invite-user">Invite user</button>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table" id="org-users-table" data-sortable>
+              <caption class="visually-hidden">Organization users</caption>
+              <thead>
+                <tr><th scope="col" data-sort="text">Name</th><th scope="col" data-sort="text">Email</th><th scope="col" data-sort="text">Role</th><th scope="col">MFA</th><th scope="col">Status</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Jordan Morgan</td><td>j.morgan@northwind.example</td><td>Organization admin</td><td><span class="badge badge--active">Enabled</span></td><td><span class="badge badge--active">Active</span></td><td><button class="btn btn--sm" type="button">Edit</button></td></tr>
+                <tr><td>Alex Chen</td><td>a.chen@northwind.example</td><td>Analyst</td><td><span class="badge badge--active">Enabled</span></td><td><span class="badge badge--active">Active</span></td><td><button class="btn btn--sm" type="button">Edit</button></td></tr>
+                <tr><td>Sam Patel</td><td>s.patel@northwind.example</td><td>Analyst</td><td><span class="badge badge--pending">Pending</span></td><td><span class="badge badge--pending">Pending</span></td><td><button class="btn btn--sm" type="button">Edit</button></td></tr>
+              </tbody>
+            </table>
+            <div class="empty-state" data-empty-for="org-users-table" hidden>
+              <p class="empty-state__title">No results</p>
+              <p>No records match the current filters.</p>
+            </div>
+          </div>
+          </div>
+        </section>
+        <section class="tabs__panel" role="tabpanel" id="security" aria-labelledby="tab-security" tabindex="0">
+          <form class="card" id="security-form" novalidate>
+            <div class="card__body form">
+              <label class="check"><input type="checkbox" id="set-mfa" name="set-mfa" checked> <span>Require multi-factor authentication for all users</span></label>
+              <label class="check"><input type="checkbox" id="set-sign" name="set-sign" checked> <span>Require a digital signature on every submission</span></label>
+              <div class="field">
+                <label for="set-timeout">Session timeout (minutes)</label>
+                <input class="input" id="set-timeout" name="set-timeout" type="number" value="30" min="5" max="240">
+              </div>
+              <div class="field">
+                <span class="label">Organization signing key</span>
+                <p class="text-sm" style="margin:0"><code>Ed25519 &middot; SHA256:9f2c...41ad</code> &middot; registered 2026-03-02</p>
+              </div>
+              <div><button class="btn" type="button" id="rotate-key">Rotate signing key</button></div>
+            </div>
+            <div class="card__footer form-actions">
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <button class="btn btn--primary" type="submit">Save changes</button>
+            </div>
+          </form>
+        </section>
+        <section class="tabs__panel" role="tabpanel" id="sharing" aria-labelledby="tab-sharing" tabindex="0">
+          <form class="card" id="sharing-form" novalidate>
+            <div class="card__body form">
+              <fieldset class="form">
+                <legend class="label">Default sharing scope for new submissions</legend>
+                <label class="check"><input type="radio" name="share-scope" value="all" checked> <span>All member organizations</span></label>
+                <label class="check"><input type="radio" name="share-scope" value="sector"> <span>Organizations in the same sector</span></label>
+                <label class="check"><input type="radio" name="share-scope" value="trusted"> <span>Trusted partner organizations only</span></label>
+              </fieldset>
+              <label class="check"><input type="checkbox" id="set-correlate" name="set-correlate" checked> <span>Allow our indicators to be included in cross-organization correlations</span></label>
+              <label class="check"><input type="checkbox" id="set-public" name="set-public"> <span>Allow low-severity indicators to be published on the public site</span></label>
+            </div>
+            <div class="card__footer form-actions">
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <button class="btn btn--primary" type="submit">Save changes</button>
+            </div>
+          </form>
+        </section>
+        <section class="tabs__panel" role="tabpanel" id="other" aria-labelledby="tab-other" tabindex="0">
+          <form class="card" id="other-form" novalidate>
+            <div class="card__body form">
+              <div class="form-row">
+                <div class="field">
+                <label for="set-notify">Notification email</label>
+                <input class="input" id="set-notify" name="set-notify" type="email" value="soc@northwind.example">
+              </div>
+                <div class="field">
+                <label for="set-tz">Time zone</label>
+                <select class="select" id="set-tz" name="set-tz"><option>UTC</option><option>Europe/Oslo</option><option>Europe/London</option><option>America/New_York</option></select>
+              </div>
+              </div>
+              <div class="field">
+                <label for="set-retention">Data retention</label>
+                <select class="select" id="set-retention" name="set-retention"><option>12 months</option><option>24 months</option><option>36 months</option></select>
+              </div>
+            </div>
+            <div class="card__footer form-actions">
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <button class="btn btn--primary" type="submit">Save changes</button>
+            </div>
+          </form>
+        </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/org-settings.js"></script>
+</body>
+</html>
